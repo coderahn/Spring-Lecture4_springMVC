@@ -25,10 +25,8 @@ public class LogTestController {
         log.warn("warn log={}", name); //경고
         log.error("error log={}", name); //에러
 
-
         //2022-06-15 23:21:27.804  INFO 15428 --- [nio-8080-exec-4] hello.springmvc.basic.LogTestController  : info log=Spring
         //nio-8080-exec-4는 쓰레드풀에서 실행한 쓰레드
-        log.info("info log={}", name);
 
         //@RestController를 사용했기 때문에 viewName이 아니라 String 바로 반환
         return "ok";
