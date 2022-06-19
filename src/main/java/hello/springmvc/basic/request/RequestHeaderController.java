@@ -15,6 +15,9 @@ import java.util.Locale;
 @Slf4j
 @RestController
 public class RequestHeaderController {
+    /**
+     * 요청시 header 데이터를 조회하는 여러가지 방법
+     */
     @RequestMapping("/headers")
     public String headers(HttpServletRequest request,
                           HttpServletResponse response,
