@@ -33,7 +33,7 @@ public class MappingController {
         return "ok";
     }
 
-    @GetMapping("/mapping/{userId}/orders/{orderId}")
+    @GetMapping("/mapping/users/{userId}/orders/{orderId}")
     public String mappingPath(@PathVariable String userId, @PathVariable("orderId") Long orderId) {
         log.info("mappingPath userId={}, orderId={}", userId, orderId);
         return "ok";
@@ -41,6 +41,7 @@ public class MappingController {
 
     /**
      * 파라미터로 추가 매핑
+     * ?mode=debug가 아닌 다른 걸 전송하면 400 Bad Request
      * params="mode",
      * params="!mode"
      * params="mode=debug"
@@ -55,6 +56,7 @@ public class MappingController {
 
     /**
      * 특정 헤더로 추가 매핑
+     * 헤더에 mode=debug를 안 넣어주면 404를 뱉음
      * headers="mode",
      * headers="!mode"
      * headers="mode=debug"
@@ -68,6 +70,7 @@ public class MappingController {
 
     /**
      * Content-Type 헤더 기반 추가 매핑 Media Type
+     * 내가 보낼 요청 Header에 Content-Type=application/json이 아니라면 415 Unsupported Media Type
      * consumes="application/json"
      * consumes="!application/json"
      * consumes="application/*"
@@ -84,6 +87,7 @@ public class MappingController {
     /**
      * Accept 헤더 기반 Media Type
      * HTTP 요청의 Accept와 produce가 맞아야 함
+     * 요청 보낼 때 Accept에 application/json으로 준다면 406 Not Acceptable
      * produces = "text/html"
      * produces = "!text/html"
      * produces = "text/*"
