@@ -44,9 +44,6 @@ public class RequestParamController {
 
     /**
      * @RequestParam조차 생략 가능(단순타입 String, int 등)
-     * @param username
-     * @param age
-     * @return
      */
     @ResponseBody
     @RequestMapping("/request-param-v4")
@@ -61,9 +58,6 @@ public class RequestParamController {
      * required=true값 안주면 400 Bad Request
      * error msg : Required request parameter 'username' for method parameter type String is not present
      * age값 안 주면 500 Error -> int는 null이 들어갈 수 없기 때문에 객체 Integer로 바꿔줘야 null처리가 된다.
-     * @param username
-     * @param age
-     * @return
      */
     @ResponseBody
     @RequestMapping("/request-param-required")
@@ -80,9 +74,6 @@ public class RequestParamController {
      * int에 null이 못 들어가는데, defaultValue를 주면 됨
      * defaultValue가 들어가면 실질적으로 required=false가 필요없다.
      * defaultValue는 빈 문자라도 설정값 적용 ex)/request-param-default?username=은 guest
-     * @param username
-     * @param age
-     * @return
      */
     @ResponseBody
     @RequestMapping("/request-param-default")
@@ -97,8 +88,6 @@ public class RequestParamController {
     /**
      * Map으로 파라미터 처리해서 get("name")처리 가능
      * MultiValueMap도 가능하다. ex) ?userIds=id1&userIds=id2로 넣으면 (key=userIds, value=[id1,id2])
-     * @param paramMap
-     * @return
      */
     @ResponseBody
     @RequestMapping("/request-param-map")
@@ -111,8 +100,6 @@ public class RequestParamController {
     /**
      * @ModelAttribute를 사용하여 객체를 한 번에 받아 사용 가능
      * age=abc처럼 숫자가 들어가야할 곳에 문자가 들어가면 BindException이 발생
-     * @param helloData
-     * @return
      */
     @ResponseBody
     @RequestMapping("/model-attribute-v1")
@@ -124,8 +111,6 @@ public class RequestParamController {
 
     /**
      * @ModelAttribute 생략 가능(String 등은 @RequestParam을 생략 가능)
-     * @param helloData
-     * @return
      */
     @ResponseBody
     @RequestMapping("/model-attribute-v2")

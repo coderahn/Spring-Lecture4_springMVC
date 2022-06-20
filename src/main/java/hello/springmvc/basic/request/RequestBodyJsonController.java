@@ -25,6 +25,9 @@ import java.nio.charset.StandardCharsets;
 public class RequestBodyJsonController {
     private ObjectMapper objectMapper = new ObjectMapper();
 
+    /**
+     * HttpServletRequest로 HTTP 메시지 바디에서 데이터를 읽어온 후 문자 변환 -> Jackson라이브러리로 자바객체 변환
+     */
     @PostMapping("/request-body-json-v1")
     public void requestBodyJsonV1(HttpServletRequest request, HttpServletResponse response) throws IOException {
         ServletInputStream inputStream = request.getInputStream();
@@ -45,7 +48,7 @@ public class RequestBodyJsonController {
     }
 
     /**
-     * 요청 데이터를 objectMapper로 역직렬화하여 객체로 변환
+     * 요청 데이터를 바로 objectMapper로 역직렬화하여 객체로 변환
      */
     @ResponseBody
     @PostMapping("/request-body-json-v2")
